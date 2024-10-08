@@ -1,3 +1,20 @@
 <h1>Phone Number Input Example</h1>
 
-<input type="tel" ngxIntlPhoneField [ngxIntlPhoneFieldParams]="params" />
+<h2>Reactive Forms</h2>
+<form [formGroup]="phoneForm">
+    <input type="tel" formControlName="phone" ngxIntlPhoneField [ngxIntlPhoneFieldParams]="params" />
+</form>
+
+<h2>Template-Driven Forms</h2>
+<form #phoneTDForm="ngForm">
+    <div>
+      <label for="phone">Phone Number</label>
+      <input 
+        type="tel"
+        id="phone"
+        name="phone"
+        [(ngModel)]="phone"
+        ngxIntlPhoneField
+        [ngxIntlPhoneFieldParams]="params" />
+    </div>
+</form>
