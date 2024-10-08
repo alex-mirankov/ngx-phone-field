@@ -3,6 +3,7 @@ import intlTelInput, { SomeOptions } from 'intl-tel-input';
 
 @Directive({
   selector: '[ngxIntlPhoneField]',
+  standalone: true,
 })
 export class NgxIntlPhoneField implements AfterViewInit {
   @Input() public ngxIntlPhoneFieldParams: SomeOptions = {};
