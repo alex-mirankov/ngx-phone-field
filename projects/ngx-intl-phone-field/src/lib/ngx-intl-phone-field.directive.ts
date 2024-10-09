@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, AfterViewInit } from '@angular/core';
+import { Directive, ElementRef, Input, AfterViewInit, OnDestroy } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import intlTelInput, { SomeOptions } from 'intl-tel-input';
 
@@ -13,7 +13,7 @@ import intlTelInput, { SomeOptions } from 'intl-tel-input';
     },
   ],
 })
-export class NgxIntlPhoneField implements AfterViewInit {
+export class NgxIntlPhoneField implements AfterViewInit, OnDestroy {
   @Input() public ngxIntlPhoneFieldParams: SomeOptions = {};
 
   private defaultOptions: SomeOptions = {
@@ -44,6 +44,8 @@ export class NgxIntlPhoneField implements AfterViewInit {
     utilsScript: this.utilsScript || (async () => await import(/* webpackIgnore: true *//* @vite-ignore */ 'intl-tel-input/utils') ),
     validationNumberType: 'MOBILE',
   };
+  private instance!: { destroy: () => void };
+  private inputListener!: EventListener;
 
   private onTouched: () => void = () => {};
   private onChange: (value: any) => void = () => {};
@@ -51,22 +53,24 @@ export class NgxIntlPhoneField implements AfterViewInit {
   constructor(private el: ElementRef) {}
 
   public ngAfterViewInit(): void {
-    const instance = intlTelInput(this.el.nativeElement, {
+    this.instance = intlTelInput(this.el.nativeElement, {
       ...this.defaultOptions,
       ...this.ngxIntlPhoneFieldParams,
     });
 
-    this.el.nativeElement.addEventListener('input', () => {
-      this.onChange({
-        isValidNumber: instance.isValidNumber(),
-        isValidNumberPrecise: instance.isValidNumberPrecise(),
-        number: instance.getNumber(),
-        numberType: instance.getNumberType(),
-        countryData: instance.getSelectedCountryData(),
-        validationError: instance.getValidationError(),
-        extension: instance.getExtension(),
-      });
-    });
+    this.inputListener = () => {
+      this.onChange(this.instance);
+    }
+
+    this.el.nativeElement.addEventListener('input', this.inputListener);
+  }
+
+  public ngOnDestroy(): void {
+    this.el.nativeElement.removeEventListener('input', this.inputListener);
+
+    if (this.instance) {
+      this.instance.destroy();
+    }
   }
 
   public writeValue(value: any): void {

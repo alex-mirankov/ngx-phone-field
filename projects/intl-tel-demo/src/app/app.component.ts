@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgxIntlPhoneField } from '../../../ngx-intl-phone-field/src/public-api';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Iti } from 'intl-tel-input';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +13,9 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 })
 export class AppComponent {
   public params = { initialCountry: 'us', strictMode: true, allowDropdown: true };
-  public phone: string = '';
+  public phone: Iti | null = null;
 
   public phoneForm = new FormGroup({
-    phone: new FormControl(''),
+    phone: new FormControl<Iti | null>(null),
   });
 }
