@@ -3,17 +3,17 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import intlTelInput, { SomeOptions } from 'intl-tel-input';
 
 @Directive({
-  selector: '[ngxIntlPhoneField]',
+  selector: '[ngxPhoneField]',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: NgxIntlPhoneField,
+      useExisting: NgxPhoneField,
       multi: true,
     },
   ],
 })
-export class NgxIntlPhoneField implements AfterViewInit, OnDestroy {
-  @Input() public ngxIntlPhoneFieldParams: SomeOptions = {};
+export class NgxPhoneField implements AfterViewInit, OnDestroy {
+  @Input() public ngxPhoneFieldParams: SomeOptions = {};
 
   private defaultOptions: SomeOptions = {
     initialCountry: '',
@@ -54,7 +54,7 @@ export class NgxIntlPhoneField implements AfterViewInit, OnDestroy {
   public ngAfterViewInit(): void {
     this.instance = intlTelInput(this.el.nativeElement, {
       ...this.defaultOptions,
-      ...this.ngxIntlPhoneFieldParams,
+      ...this.ngxPhoneFieldParams,
     });
 
     this.inputListener = () => {

@@ -97,23 +97,23 @@
         }
       }
     },
-    "ngx-intl-phone-field": {
+    "ngx-phone-field": {
       "projectType": "library",
-      "root": "projects/ngx-intl-phone-field",
-      "sourceRoot": "projects/ngx-intl-phone-field/src",
+      "root": "projects/ngx-phone-field",
+      "sourceRoot": "projects/ngx-phone-field/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/ngx-intl-phone-field/ng-package.json"
+            "project": "projects/ngx-phone-field/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ngx-intl-phone-field/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ngx-phone-field/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ngx-intl-phone-field/tsconfig.lib.json"
+              "tsConfig": "projects/ngx-phone-field/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -121,7 +121,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/ngx-intl-phone-field/tsconfig.spec.json",
+            "tsConfig": "projects/ngx-phone-field/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
@@ -160,7 +160,7 @@
             ],
             "styles": [
               "projects/intl-tel-demo/src/styles.scss",
-              "dist/ngx-intl-phone-field/assets/styles.css"
+              "dist/ngx-phone-field/assets/styles.css"
             ],
             "scripts": [
               

@@ -1,6 +1,6 @@
-# ngx-intl-phone-field
+# ngx-phone-field
 
-`ngx-intl-phone-field` is an Angular directive that provides international phone input with country flag dropdowns. It integrates with Angular forms, supporting both Reactive Forms and Template-Driven Forms.
+`ngx-phone-field` is an Angular directive that provides international phone input with country flag dropdowns. It integrates with Angular forms, supporting both Reactive Forms and Template-Driven Forms.
 
 ## Table of Contents
 
@@ -27,7 +27,7 @@
 
 ## Version Compatibility
 
-| ngx-intl-phone-field Version | Supported Angular Versions                |
+| ngx-phone-field Version | Supported Angular Versions                |
 |------------------------------|-------------------------------------------|
 | v2.x.x                       | Angular 15 to Angular 18 (inclusive)      |
 | v1.x.x                       | Angular 10 to Angular 14 (inclusive)      |
@@ -35,7 +35,7 @@
 ## Installation
 
 ```bash
-npm install ngx-intl-phone-field
+npm install ngx-phone-field
 ```
 `Note`: You don't need to install intl-tel-input separately. It's bundled with the package.
 
@@ -55,7 +55,7 @@ In order for the phone input field to render correctly with flags and dropdown s
           "options": {
             "styles": [
               "src/styles.css",
-              "node_modules/ngx-intl-phone-field/assets/styles.css"
+              "node_modules/ngx-phone-field/assets/styles.css"
             ]
           }
         }
@@ -66,14 +66,14 @@ In order for the phone input field to render correctly with flags and dropdown s
 ```
 
 ## Usage
-`ngxIntlPhoneField` directive returns the full `intl-tel-input` instance when the input changes. This gives the access to all the methods and properties available in the `intl-tel-input` API, providing full flexibility for advanced use cases.
+`ngxPhoneField` directive returns the full `intl-tel-input` instance when the input changes. This gives the access to all the methods and properties available in the `intl-tel-input` API, providing full flexibility for advanced use cases.
 
 ### Example with Reactive Forms
 
 ```typescript
 // app-phone-form.module.ts
 
-import { NgxIntlPhoneFieldModule } from 'ngx-intl-phone-field';
+import { NgxPhoneFieldModule } from 'ngx-phone-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
@@ -83,7 +83,7 @@ import { PhoneFormComponent } from './app-phone-form.component.ts';
   declarations: [PhoneFormComponent],
   imports: [
     ReactiveFormsModule,
-    NgxIntlPhoneFieldModule,
+    NgxPhoneFieldModule,
     // ...other modules
   ],
   exports: [PhoneFormComponent]
@@ -99,12 +99,9 @@ export class PhoneFormModule {}
     type="tel"
     id="phone"
     formControlName="phone"
-    ngxIntlPhoneField
-    [ngxIntlPhoneFieldParams]="params"
+    ngxPhoneField
+    [ngxPhoneFieldParams]="params"
   />
-  <div *ngIf="phoneForm.controls.phone?.invalid">
-    Phone number is invalid
-  </div>
 </form>
 ```
 
@@ -141,7 +138,7 @@ export class PhoneFormComponent {
 ```typescript
 // app-phone-form.module.ts
 
-import { NgxIntlPhoneFieldModule } from 'ngx-intl-phone-field';
+import { NgxPhoneFieldModule } from 'ngx-phone-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
@@ -151,7 +148,7 @@ import { PhoneFormComponent } from './app-phone-form.component.ts';
   declarations: [PhoneFormComponent],
   imports: [
     ReactiveFormsModule,
-    NgxIntlPhoneFieldModule,
+    NgxPhoneFieldModule,
     // ...other modules
   ],
   exports: [PhoneFormComponent]
@@ -169,13 +166,10 @@ export class PhoneFormModule {}
     id="phone"
     name="phone"
     [(ngModel)]="phone"
-    ngxIntlPhoneField
-    [ngxIntlPhoneFieldParams]="params"
+    ngxPhoneField
+    [ngxPhoneFieldParams]="params"
     required
   />
-  <div *ngIf="phoneForm.controls.phone?.invalid && phoneForm.controls.phone?.touched">
-    Phone number is invalid
-  </div>
 </form>
 
 <button (click)="logInstance()">Log Instance</button>
@@ -207,7 +201,7 @@ export class PhoneFormComponent {
 
 ## Configuration Options
 
-You can pass various options to configure the behavior of the phone input field through `ngxIntlPhoneFieldParams`. The `ngxIntlPhoneFieldParams` input accepts a configuration object, which includes all the properties from `intl-tel-input`. You can refer to the full list of properties in the `Initialisation Options` section [here](https://www.npmjs.com/package/intl-tel-input) or see them here:
+You can pass various options to configure the behavior of the phone input field through `ngxPhoneFieldParams`. The `ngxPhoneFieldParams` input accepts a configuration object, which includes all the properties from `intl-tel-input`. You can refer to the full list of properties in the `Initialisation Options` section [here](https://www.npmjs.com/package/intl-tel-input) or see them below:
 .
 
 | Option                   | Type                                 | Default          | Description                                                                                                                                                                                                                                                                                                                                 |
@@ -239,7 +233,7 @@ You can pass various options to configure the behavior of the phone input field 
 | `validationNumberType`    | String                               | "MOBILE"         | Set the number type to enforce during validation with `isValidNumber` and number length enforcement with `strictMode`.                                                                                                                                                                                                                        
 ## Instance Methods and Properties
 
-Once you initialize the `ngxIntlPhoneField`, the directive returns an instance of `intl-tel-input` with the following methods and properties:
+Once you initialize the `ngxPhoneField`, the directive returns an instance of `intl-tel-input` with the following methods and properties:
 
 | Method                     | Description                                                                                                                                                                                                                                                       |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -281,11 +275,11 @@ If you want to contribute or modify the package, follow these steps:
 * Clone your forked repository locally:
 
 ```bash
-git clone https://github.com/your-username/ngx-intl-phone-field.git
+git clone https://github.com/alex-mirankov/ngx-phone-field.git
 ```
-* Run npm install to install dependencies.
-* Run ng build ngx-intl-phone-field to build the project.
-* Run ng serve intl-tel-demo to run the demo project and see your changes in action (if applicable).
+* Run `npm install` to install dependencies.
+* Run `ng build ngx-phone-field` to build the project.
+* Run `ng serve intl-tel-demo` to run the demo project and see your changes in action (if applicable).
 * Make changes to the codebase.
 * Test your changes thoroughly before submitting.
 * Create a pull request from your fork to the original repository.
