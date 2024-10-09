@@ -2,7 +2,7 @@
 
 <h2>Reactive Forms</h2>
 <form [formGroup]="phoneForm">
-    <input type="tel" formControlName="phone" ngxIntlPhoneField [ngxIntlPhoneFieldParams]="params" />
+    <input type="tel" formControlName="phone" ngxPhoneField [ngxPhoneFieldParams]="params" />
 </form>
 
 <h2>Template-Driven Forms</h2>
@@ -14,7 +14,7 @@
         id="phone"
         name="phone"
         [(ngModel)]="phone"
-        ngxIntlPhoneField
-        [ngxIntlPhoneFieldParams]="params" />
+        ngxPhoneField
+        [ngxPhoneFieldParams]="params" />
     </div>
 </form>

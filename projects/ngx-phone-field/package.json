@@ -1,5 +1,5 @@
 {
-  "name": "ngx-intl-phone-field",
+  "name": "ngx-phone-field",
   "version": "2.0.0",
   "peerDependencies": {
     "@angular/common": ">=15.0.0 <= 18.0.0",
