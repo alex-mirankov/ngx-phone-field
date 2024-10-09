@@ -88,9 +88,6 @@ import { NgxPhoneFieldDirective } from 'ngx-phone-field';
         ngxPhoneField
         [ngxPhoneFieldParams]="params"
       />
-      <div *ngIf="phoneForm.controls.phone?.invalid">
-        Phone number is invalid
-      </div>
     </form>
   `,
   imports: [ReactiveFormsModule, NgxPhoneFieldDirective]
@@ -135,9 +132,6 @@ import { NgxPhoneFieldDirective } from 'ngx-phone-field';
         [ngxPhoneFieldParams]="params"
         required
       />
-      <div *ngIf="phoneForm.controls.phone?.invalid && phoneForm.controls.phone?.touched">
-        Phone number is invalid
-      </div>
     </form>
 
     <button (click)="logInstance()">Log Instance</button>
@@ -161,7 +155,7 @@ export class TemplatePhoneFormComponent {
 
 ## Configuration Options
 
-You can pass various options to configure the behavior of the phone input field through `ngxPhoneFieldParams`. The `ngxPhoneFieldParams` input accepts a configuration object, which includes all the properties from `intl-tel-input`. You can refer to the full list of properties in the `Initialisation Options` section [here](https://www.npmjs.com/package/intl-tel-input) or see them here:
+You can pass various options to configure the behavior of the phone input field through `ngxPhoneFieldParams`. The `ngxPhoneFieldParams` input accepts a configuration object, which includes all the properties from `intl-tel-input`. You can refer to the full list of properties in the `Initialisation Options` section [here](https://www.npmjs.com/package/intl-tel-input) or see them below:
 .
 
 | Option                   | Type                                 | Default          | Description                                                                                                                                                                                                                                                                                                                                 |
