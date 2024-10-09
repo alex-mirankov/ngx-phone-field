@@ -7,6 +7,7 @@
 1. [Features](#features)
 2. [Version Compatibility](#version-compatibility)
 3. [Installation](#installation)
+    - [Include Required Styles](#include-required-styles)
 4. [Usage](#usage)
    - [Standalone Directive and Example with Reactive Forms](#standalone-directive-and-example-with-reactive-forms)
    - [Standalone Directive and Example with Template-Driven Forms](#standalone-directive-and-example-with-template-driven-forms)
@@ -37,6 +38,32 @@
 npm install ngx-intl-phone-field
 ```
 `Note`: You don't need to install intl-tel-input separately. It's bundled with the package.
+
+### Include Required Styles
+
+In order for the phone input field to render correctly with flags and dropdown styles, you need to include the required CSS file in your angular.json:
+
+* Open your `angular.json` file.
+* Add the `intl-tel-input` styles to the styles array in `angular.json`:
+
+```json
+{
+  "projects": {
+    "your-app": {
+      "architect": {
+        "build": {
+          "options": {
+            "styles": [
+              "src/styles.css",
+              "node_modules/ngx-intl-phone-field/assets/styles.css"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+```
 
 ## Usage
 `ngxIntlPhoneField` directive returns the full `intl-tel-input` instance when the input changes. This gives the access to all the methods and properties available in the `intl-tel-input` API, providing full flexibility for advanced use cases.
