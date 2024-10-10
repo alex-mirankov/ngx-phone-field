@@ -1,12 +1,29 @@
 {
   "name": "ngx-phone-field",
   "version": "1.0.0",
+  "description": "An Angular directive for international phone input with country flag dropdowns.",
   "peerDependencies": {
-    "@angular/common": ">=10.0.0 <= 14.0.0",
-    "@angular/core": ">=10.0.0 <= 14.0.0"
+    "@angular/common": ">=10.0.0 < 15.0.0",
+    "@angular/core": ">=10.0.0 < 15.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
   },
+  "author": "Aliaksandr Mirankou",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alex-mirankov/ngx-phone-field"
+  },
+  "keywords": [
+    "angular",
+    "intl-tel-input",
+    "phone",
+    "mask",
+    "directive",
+    "country selection",
+    "form",
+    "input"
+  ],
   "sideEffects": false
 }
