@@ -17,7 +17,7 @@ export class AppComponent {
     strictMode: true,
     allowDropdown: true,
     // @ts-ignore
-    loadUtilsOnInit: async () => await import('intl-tel-input/utils'),
+    loadUtilsOnInit: async () => import('intl-tel-input/utils'),
   };
   public phone: Iti | null = null;
 
