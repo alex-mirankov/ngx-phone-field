@@ -124,7 +124,8 @@ export class PhoneFormComponent {
     initialCountry: 'us',
     allowDropdown: true,
     formatAsYouType: true,
-    loadUtilsOnInit: () => import('intl-tel-input/utils'), // load utils script for formatting and validation
+    // @ts-ignore
+    loadUtilsOnInit: async () => await import('intl-tel-input/utils'), // load utils script for formatting and validation
   };
 
   handleSubmit() {
@@ -192,7 +193,8 @@ export class PhoneFormComponent {
     initialCountry: 'us',
     allowDropdown: true,
     formatAsYouType: true,
-    loadUtilsOnInit: () => import('intl-tel-input/utils'), // load utils script for formatting and validation
+    // @ts-ignore
+    loadUtilsOnInit: async () => await import('intl-tel-input/utils'), // load utils script for formatting and validation
   };
 
   logInstance() {
