@@ -100,7 +100,7 @@ export class PhoneFormComponent {
     initialCountry: 'us',
     allowDropdown: true,
     formatAsYouType: true,
-    loadUtilsOnInit: () => import("intl-tel-input/utils"), // load utils script for formatting and validation
+    loadUtilsOnInit: () => import('intl-tel-input/utils'), // load utils script for formatting and validation
   };
 
   handleSubmit() {
@@ -145,7 +145,7 @@ export class TemplatePhoneFormComponent {
     initialCountry: 'us',
     allowDropdown: true,
     formatAsYouType: true,
-    loadUtilsOnInit: () => import("intl-tel-input/utils"), // load utils script for formatting and validation
+    loadUtilsOnInit: () => import('intl-tel-input/utils'), // load utils script for formatting and validation
   };
 
   logInstance() {
