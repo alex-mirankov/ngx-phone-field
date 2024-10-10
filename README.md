@@ -43,7 +43,7 @@ npm install ngx-phone-field intl-tel-input
 In order for the phone input field to render correctly with flags and dropdown styles, you need to include the required CSS file in your angular.json:
 
 * Open your `angular.json` file.
-* Add the `ngx-phone-field` styles to the styles array in `angular.json`:
+* Add the `intl-tel-input` styles to the styles array in `angular.json`:
 
 ```json
 {
@@ -100,7 +100,8 @@ export class PhoneFormComponent {
     initialCountry: 'us',
     allowDropdown: true,
     formatAsYouType: true,
-    loadUtilsOnInit: () => import('intl-tel-input/utils'), // load utils script for formatting and validation
+    // @ts-ignore
+    loadUtilsOnInit: async () => await import('intl-tel-input/utils'), // load utils script for formatting and validation
   };
 
   handleSubmit() {
@@ -145,7 +146,8 @@ export class TemplatePhoneFormComponent {
     initialCountry: 'us',
     allowDropdown: true,
     formatAsYouType: true,
-    loadUtilsOnInit: () => import('intl-tel-input/utils'), // load utils script for formatting and validation
+    // @ts-ignore
+    loadUtilsOnInit: async () => await import('intl-tel-input/utils'), // load utils script for formatting and validation
   };
 
   logInstance() {
