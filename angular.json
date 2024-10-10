@@ -160,7 +160,7 @@
             ],
             "styles": [
               "projects/intl-tel-demo/src/styles.scss",
-              "dist/ngx-phone-field/assets/styles.css"
+              "node_modules/intl-tel-input/build/css/intlTelInput.css"
             ],
             "scripts": [
               

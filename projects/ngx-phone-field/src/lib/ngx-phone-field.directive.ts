@@ -40,8 +40,7 @@ export class NgxPhoneField implements AfterViewInit, OnDestroy {
     separateDialCode: false,
     strictMode: false,
     useFullscreenPopup: /Android.+Mobile|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 500 || false,
-    // @ts-ignore
-    utilsScript: this.utilsScript || (async () => await import(/* webpackIgnore: true *//* @vite-ignore */ 'intl-tel-input/utils') ),
+    utilsScript: '',
     validationNumberType: 'MOBILE',
   };
   private instance!: { destroy: () => void };
