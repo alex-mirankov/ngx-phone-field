@@ -15,8 +15,9 @@
 6. [Instance Methods and Properties](#instance-methods-and-properties)
    - [Static Methods](#static-methods)
    - [Events](#events)
-7. [Development](#development)
-8. [License](#license)
+7. [Loading The Utilities Script](#loading-the-utilities-script)
+8. [Development](#development)
+9. [License](#license)
 
 
 ## Features
@@ -35,9 +36,8 @@
 ## Installation
 
 ```bash
-npm install ngx-phone-field
+npm install ngx-phone-field intl-tel-input
 ```
-`Note`: You don't need to install intl-tel-input separately. It's bundled with the package.
 
 ### Include Required Styles
 
@@ -55,7 +55,7 @@ In order for the phone input field to render correctly with flags and dropdown s
           "options": {
             "styles": [
               "src/styles.css",
-              "node_modules/ngx-phone-field/assets/styles.css"
+              "node_modules/intl-tel-input/build/css/intlTelInput.css"
             ]
           }
         }
@@ -124,6 +124,7 @@ export class PhoneFormComponent {
     initialCountry: 'us',
     allowDropdown: true,
     formatAsYouType: true,
+    loadUtilsOnInit: () => import('intl-tel-input/utils'), // load utils script for formatting and validation
   };
 
   handleSubmit() {
@@ -191,6 +192,7 @@ export class PhoneFormComponent {
     initialCountry: 'us',
     allowDropdown: true,
     formatAsYouType: true,
+    loadUtilsOnInit: () => import('intl-tel-input/utils'), // load utils script for formatting and validation
   };
 
   logInstance() {
@@ -266,7 +268,8 @@ Once you initialize the `ngxPhoneField`, the directive returns an instance of `i
 | `open:countrydropdown`         | Triggered when the user opens the dropdown.                                                                                                                                                                                                                    |
 | `close:countrydropdown`        | Triggered when the user closes the dropdown.                                                                                                                                                                                                                   |
 
-
+## Loading The Utilities Script
+Enabling formatting and validation for phone numbers requires the `utils.js` script. Make sure to include this in your project to fully enable these features. For more information, you can refer to the [official documentation](https://www.npmjs.com/package/intl-tel-input) - Loading The Utilities Script section. 
 
 ## Development
 If you want to contribute or modify the package, follow these steps:

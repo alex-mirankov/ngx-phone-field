@@ -12,7 +12,13 @@ import { Iti } from 'intl-tel-input';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  public params = { initialCountry: 'us', strictMode: true, allowDropdown: true };
+  public params = {
+    initialCountry: 'us',
+    strictMode: true,
+    allowDropdown: true,
+    // @ts-ignore
+    loadUtilsOnInit: async () => import('intl-tel-input/utils'),
+  };
   public phone: Iti | null = null;
 
   public phoneForm = new FormGroup({

@@ -3,8 +3,5 @@
   "dest": "../../dist/ngx-phone-field",
   "lib": {
     "entryFile": "src/public-api.ts"
-  },
-  "assets": [
-    "assets/styles.css"
-  ]
+  }
 }
