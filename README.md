@@ -73,7 +73,7 @@ In order for the phone input field to render correctly with flags and dropdown s
 ```typescript
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { NgxPhoneFieldDirective } from 'ngx-phone-field';
+import { NgxPhoneField } from 'ngx-phone-field';
 
 @Component({
   selector: 'app-phone-form',
@@ -90,7 +90,7 @@ import { NgxPhoneFieldDirective } from 'ngx-phone-field';
       />
     </form>
   `,
-  imports: [ReactiveFormsModule, NgxPhoneFieldDirective]
+  imports: [ReactiveFormsModule, NgxPhoneField]
 })
 export class PhoneFormComponent {
   phoneForm = new FormGroup({
@@ -115,7 +115,7 @@ export class PhoneFormComponent {
 ```typescript
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgxPhoneFieldDirective } from 'ngx-phone-field';
+import { NgxPhoneField } from 'ngx-phone-field';
 
 @Component({
   selector: 'app-template-phone-form',
@@ -136,7 +136,7 @@ import { NgxPhoneFieldDirective } from 'ngx-phone-field';
 
     <button (click)="logInstance()">Log Instance</button>
   `,
-  imports: [FormsModule, NgxPhoneFieldDirective]
+  imports: [FormsModule, NgxPhoneField]
 })
 export class TemplatePhoneFormComponent {
   public phone: string = '';
