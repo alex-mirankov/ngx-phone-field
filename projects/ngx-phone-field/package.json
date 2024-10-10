@@ -1,6 +1,6 @@
 {
   "name": "ngx-phone-field",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An Angular directive for international phone input with country flag dropdowns.",
   "peerDependencies": {
     "@angular/common": ">=10.0.0 < 15.0.0",
