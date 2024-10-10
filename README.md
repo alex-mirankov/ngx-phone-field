@@ -15,8 +15,9 @@
 6. [Instance Methods and Properties](#instance-methods-and-properties)
    - [Static Methods](#static-methods)
    - [Events](#events)
-7. [Development](#development)
-8. [License](#license)
+7. [Loading The Utilities Script](#loading-the-utilities-script)
+8. [Development](#development)
+9. [License](#license)
 
 
 ## Features
