@@ -5,11 +5,9 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { Iti } from 'intl-tel-input';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, FormsModule, ReactiveFormsModule, NgxPhoneField],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    imports: [FormsModule, ReactiveFormsModule, NgxPhoneField],
+    templateUrl: './app.component.html'
 })
 export class AppComponent {
   public params = {
