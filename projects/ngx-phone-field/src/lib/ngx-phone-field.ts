@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, AfterViewInit, OnDestroy } from '@angular/core';
+import { Directive, ElementRef, AfterViewInit, OnDestroy, InputSignal, input, inject } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import intlTelInput, { SomeOptions } from 'intl-tel-input';
 
@@ -14,7 +14,7 @@ import intlTelInput, { SomeOptions } from 'intl-tel-input';
   ],
 })
 export class NgxPhoneField implements AfterViewInit, OnDestroy {
-  @Input() public ngxPhoneFieldParams: SomeOptions = {};
+  public readonly ngxPhoneFieldParams: InputSignal<SomeOptions> = input({});
 
   private defaultOptions: SomeOptions = {
     initialCountry: '',
@@ -49,12 +49,12 @@ export class NgxPhoneField implements AfterViewInit, OnDestroy {
   private onTouched: () => void = () => {};
   private onChange: (value: any) => void = () => {};
   
-  constructor(private el: ElementRef) {}
+  private readonly el: ElementRef = inject(ElementRef)
 
   public ngAfterViewInit(): void {
     this.instance = intlTelInput(this.el.nativeElement, {
       ...this.defaultOptions,
-      ...this.ngxPhoneFieldParams,
+      ...this.ngxPhoneFieldParams(),
     });
 
     this.inputListener = () => {

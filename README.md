@@ -28,8 +28,9 @@
 
 ## Version Compatibility
 
-| ngx-phone-field Version | Supported Angular Versions                |
+| ngx-phone-field Version | Supported Angular Versions                     |
 |------------------------------|-------------------------------------------|
+| v4.x.x                       | Angular 20                                |
 | v3.x.x                       | Angular 19                                |
 | v2.x.x                       | Angular 15 to Angular 18 (inclusive)      |
 | v1.x.x                       | Angular 10 to Angular 14 (inclusive)      |
